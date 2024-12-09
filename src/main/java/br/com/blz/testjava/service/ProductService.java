@@ -80,7 +80,7 @@ public class ProductService {
      *
      * @param productEntity The product to have its inventory calculated.
      */
-    private void calculateInventory(ProductEntity productEntity) {
+    public void calculateInventory(ProductEntity productEntity) {
         Long quantity = productEntity.getInventory().getWarehouses().stream().mapToLong(WarehouseEntity::getQuantity).sum();
 
         if (quantity > 0) {
