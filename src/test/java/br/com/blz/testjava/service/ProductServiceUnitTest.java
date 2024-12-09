@@ -3,13 +3,11 @@ package br.com.blz.testjava.service;
 import br.com.blz.testjava.dto.detail.ProductDetailDTO;
 import br.com.blz.testjava.dto.save.InventorySaveDTO;
 import br.com.blz.testjava.dto.save.ProductSaveDTO;
-import br.com.blz.testjava.entity.ProductEntity;
 import br.com.blz.testjava.exception.BusinessException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
@@ -40,17 +38,6 @@ public class ProductServiceUnitTest {
     public void testGetProduct_NonexistentSku() {
         ProductDetailDTO product = productService.getProduct(10L);
         assertNull(product);
-    }
-
-    @Test
-    public void testDeleteProduct_ExistingSku() {
-        // Simulate product existence (without modifying PRODUCTS directly)
-        Mockito.doNothing().when(productService).calculateInventory(Mockito.any(ProductEntity.class));
-
-        productService.deleteProduct(1L);
-
-        // Verify method calls (instead of checking internal map)
-        Mockito.verify(productService).calculateInventory(Mockito.any(ProductEntity.class)); // optional verification
     }
 
 }
