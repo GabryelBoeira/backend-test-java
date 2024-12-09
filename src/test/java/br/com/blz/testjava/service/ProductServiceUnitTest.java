@@ -3,9 +3,6 @@ package br.com.blz.testjava.service;
 import br.com.blz.testjava.dto.detail.ProductDetailDTO;
 import br.com.blz.testjava.dto.save.InventorySaveDTO;
 import br.com.blz.testjava.dto.save.ProductSaveDTO;
-import br.com.blz.testjava.dto.update.InventoryUpdateDTO;
-import br.com.blz.testjava.dto.update.ProductUpdateDTO;
-import br.com.blz.testjava.entity.InventoryEntity;
 import br.com.blz.testjava.entity.ProductEntity;
 import br.com.blz.testjava.exception.BusinessException;
 import org.junit.jupiter.api.Test;
@@ -18,7 +15,8 @@ import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceUnitTest {
